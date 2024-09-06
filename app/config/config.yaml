@@ -1,0 +1,14 @@
+kafka-broker:
+    bootstrap.servers: "host.docker.internal:29097"
+    group.id: "kafka-rank0-demo"
+    auto.offset.reset: "earliest"
+    acks: "all"
+
+database:
+    host: host.docker.internal
+    port: 3306
+    user:
+    password:
+    db: cycling
+    charset: utf8
+    ssl: true

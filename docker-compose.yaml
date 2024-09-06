@@ -1,0 +1,57 @@
+x-kafka-demo-common-common:
+  &kafka-demo-common
+  build: .
+  volumes:
+    - .:/kafka
+
+services:
+  rank-parser:
+    <<: *kafka-demo-common
+    command: python app.py -t rank
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+  country-parser:
+    <<: *kafka-demo-common
+    command: python app.py -t country
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+  team-parser:
+    <<: *kafka-demo-common
+    command: python app.py -t team
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+  rider-parser:
+    <<: *kafka-demo-common
+    command: python app.py -t rider
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+  ranking-parser:
+    <<: *kafka-demo-common
+    command: python app.py -t ranking
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always

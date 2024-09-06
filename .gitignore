@@ -1,0 +1,14 @@
+__pycache__/
+clear
+*.pyc
+.coverage
+coverage*
+*config.json
+.DS_Store
+*ipynb*
+.idea/
+config.dev.yaml
+config.prod.yaml
+
+*.db
+default
